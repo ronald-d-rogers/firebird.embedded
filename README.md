@@ -35,14 +35,16 @@ In you `project.json` add the following:
 ```json
 {
     "scripts": {
-        "postcompile": ["robocopy /E ..\\packages\\Firebird.Embedded.3.0.0.32483\\build\\x64\\ %compile:RuntimeOutputDir%\\"]
+        "postcompile": ["robocopy /E %USERPROFILE%\\.nuget\\Firebird.Embedded.3.0.0.32483\\build\\x64\\ %compile:RuntimeOutputDir%\\"]
     }
 }
 ```
 
 Note that if you're not building for the x64 architecture you will have to change it to build to x86 manually.
-`\\packages\\Firebird.Embedded.3.0.0.32483\\build\\x86\\ %compile:RuntimeOutputDir%\\`
+`%USERPROFILE%\\.nuget\\packages\\Firebird.Embedded.3.0.0.32483\\build\\x86\\ %compile:RuntimeOutputDir%\\`
 
+If you are referencing Firebird.Embedded in another, non .xproj project then you want the following path instead:
+`..\\packages\\Firebird.Embedded.3.0.0.32483\\build\\x64\\ %compile:RuntimeOutputDir%\\`
 
 ## More Information
 http://firebirdsql.org/en/net-examples-of-use/
