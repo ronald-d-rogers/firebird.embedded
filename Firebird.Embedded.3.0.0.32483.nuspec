@@ -5,9 +5,15 @@
         <version>3.0.0.32483</version>
         <title>Firebird.Embedded</title>
         <authors>Ronald Rogers</authors>
+        <projectUrl>https://github.com/ronald-d-rogers/firebird.embedded</projectUrl>
+        <iconUrl>http://firebirdsql.org/file/about/firebird-logo-90.png</iconUrl>
         <requireLicenseAcceptance>false</requireLicenseAcceptance>
         <description>Ez-pz embedding of the Firebird SQL RDMS database.</description>
         <summary>Ez-pz embedding of the Firebird SQL RDMS database.</summary>
+        <releaseNotes />
+        <dependencies>
+            <dependency id="FirebirdSql.Data.FirebirdClient" version="4.0.0" />
+        </dependencies>
     </metadata>
     <files>
         <file src="build\x64\intl\fbintl.conf" target="build\x64\intl\fbintl.conf" />
