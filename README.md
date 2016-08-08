@@ -35,7 +35,7 @@ In you `project.json` add the following:
 ```json
 {
     "scripts": {
-        "postcompile": ["robocopy /E %USERPROFILE%\\.nuget\\Firebird.Embedded.3.0.0.32483\\build\\x64\\ %compile:RuntimeOutputDir%\\"]
+        "postcompile": ["robocopy /E %USERPROFILE%\\.nuget\\packages\\Firebird.Embedded.3.0.0.32483\\build\\x64\\ %compile:RuntimeOutputDir%\\"]
     }
 }
 ```
