@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
+    <metadata>
+        <id>Firebird.Embedded</id>
+        <version>3.0.0.32483</version>
+        <title>Firebird.Embedded</title>
+        <authors>Ronald Rogers</authors>
+        <requireLicenseAcceptance>false</requireLicenseAcceptance>
+        <description>Ez-pz embedding of the Firebird SQL RDMS database.</description>
+        <summary>Ez-pz embedding of the Firebird SQL RDMS database.</summary>
+    </metadata>
+    <files>
+        <file src="build\x64\intl\fbintl.conf" target="build\x64\intl\fbintl.conf" />
+        <file src="build\x64\intl\fbintl.dll" target="build\x64\intl\fbintl.dll" />
+        <file src="build\x64\plugins\engine12.dll" target="build\x64\plugins\engine12.dll" />
+        <file src="build\x64\plugins\fbtrace.dll" target="build\x64\plugins\fbtrace.dll" />
+        <file src="build\x64\plugins\legacy_auth.dll" target="build\x64\plugins\legacy_auth.dll" />
+        <file src="build\x64\plugins\legacy_usermanager.dll" target="build\x64\plugins\legacy_usermanager.dll" />
+        <file src="build\x64\plugins\srp.dll" target="build\x64\plugins\srp.dll" />
+        <file src="build\x64\plugins\udr_engine.conf" target="build\x64\plugins\udr_engine.conf" />
+        <file src="build\x64\plugins\udr_engine.dll" target="build\x64\plugins\udr_engine.dll" />
+        <file src="build\x64\fbclient.dll" target="build\x64\fbclient.dll" />
+        <file src="build\x64\fbembed.dll" target="build\x64\fbembed.dll" />
+        <file src="build\x64\ib_util.dll" target="build\x64\ib_util.dll" />
+        <file src="build\x64\icudt52.dll" target="build\x64\icudt52.dll" />
+        <file src="build\x64\icudt52l.dat" target="build\x64\icudt52l.dat" />
+        <file src="build\x64\icuin52.dll" target="build\x64\icuin52.dll" />
+        <file src="build\x64\icuuc52.dll" target="build\x64\icuuc52.dll" />
+        <file src="build\x64\plugins.conf" target="build\x64\plugins.conf" />
+        <file src="build\x86\intl\fbintl.conf" target="build\x86\intl\fbintl.conf" />
+        <file src="build\x86\intl\fbintl.dll" target="build\x86\intl\fbintl.dll" />
+        <file src="build\x86\plugins\engine12.dll" target="build\x86\plugins\engine12.dll" />
+        <file src="build\x86\plugins\fbtrace.dll" target="build\x86\plugins\fbtrace.dll" />
+        <file src="build\x86\plugins\legacy_auth.dll" target="build\x86\plugins\legacy_auth.dll" />
+        <file src="build\x86\plugins\legacy_usermanager.dll" target="build\x86\plugins\legacy_usermanager.dll" />
+        <file src="build\x86\plugins\srp.dll" target="build\x86\plugins\srp.dll" />
+        <file src="build\x86\plugins\udr_engine.conf" target="build\x86\plugins\udr_engine.conf" />
+        <file src="build\x86\plugins\udr_engine.dll" target="build\x86\plugins\udr_engine.dll" />
+        <file src="build\x86\fbclient.dll" target="build\x86\fbclient.dll" />
+        <file src="build\x86\fbembed.dll" target="build\x86\fbembed.dll" />
+        <file src="build\x86\ib_util.dll" target="build\x86\ib_util.dll" />
+        <file src="build\x86\icudt52.dll" target="build\x86\icudt52.dll" />
+        <file src="build\x86\icudt52l.dat" target="build\x86\icudt52l.dat" />
+        <file src="build\x86\icuin52.dll" target="build\x86\icuin52.dll" />
+        <file src="build\x86\icuuc52.dll" target="build\x86\icuuc52.dll" />
+        <file src="build\x86\plugins.conf" target="build\x86\plugins.conf" />
+        <file src="build\Firebird.Embedded.targets" target="build\Firebird.Embedded.targets" />
+        <file src="lib\dotnet\_._" target="lib\dotnet\_._" />
+    </files>
+</package>
