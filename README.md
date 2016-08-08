@@ -2,7 +2,7 @@
 
 ![Firebird Logo](http://firebirdsql.org/file/about/firebird-logo-48.png)
 
-Ez-pz embedding of the fantastic [Firebird SQL RDMS database](http://firebirdsql.org/).
+Ez-pz embedding of the fantastic [Firebird SQL RDBMS database](http://firebirdsql.org/).
 
 Simply reference Firebird.Embedded in nuget and you're good to go, the required Firebird libraries and files will automatically be copied to your output directory on build.
 

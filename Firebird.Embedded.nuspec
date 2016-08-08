@@ -8,8 +8,8 @@
         <projectUrl>https://github.com/ronald-d-rogers/firebird.embedded</projectUrl>
         <iconUrl>http://firebirdsql.org/file/about/firebird-logo-90.png</iconUrl>
         <requireLicenseAcceptance>false</requireLicenseAcceptance>
-        <description>Ez-pz embedding of the Firebird SQL RDMS database.</description>
-        <summary>Ez-pz embedding of the Firebird SQL RDMS database.</summary>
+        <description>Ez-pz embedding of the Firebird SQL RDBMS database.</description>
+        <summary>Ez-pz embedding of the Firebird SQL RDBMS database.</summary>
         <releaseNotes />
         <dependencies>
             <dependency id="FirebirdSql.Data.FirebirdClient" version="5.0.0" />
