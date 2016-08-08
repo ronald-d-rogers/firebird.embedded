@@ -2,7 +2,7 @@
 
 Ez-pz embedding of the fantastic [Firebird SQL RDMS database](http://firebirdsql.org/).
 
-Simply reference Firebird.Embedded in nuget and you're good to go, the required Firebird libraries and files will automatically be copied to your output directory.
+Simply reference Firebird.Embedded in nuget and you're good to go, the required Firebird libraries and files will automatically be copied to your output directory on build.
 
 To start an embedded instance create a connection string like so:
 
@@ -27,7 +27,24 @@ Connecting to the database:
 new FbConnection(connectionString);
 ```
 
-More here:
+## ASP.Net Core
+ASP.Net core will not respect nuget's target file so you have to copy the files manually.
+
+In you `project.json` add the following:
+
+```json
+{
+    "scripts": {
+        "postcompile": ["robocopy /E ..\\packages\\Firebird.Embedded.3.0.0.32483\\build\\x64\\ %compile:RuntimeOutputDir%\\"]
+    }
+}
+```
+
+Note that if you're not building for the x64 architecture you will have to change it to build to x86 manually.
+`\\packages\\Firebird.Embedded.3.0.0.32483\\build\\x86\\ %compile:RuntimeOutputDir%\\`
+
+
+## More Information
 http://firebirdsql.org/en/net-examples-of-use/
 
-Don't be frightened by the hideous website, its actually a pretty good database!
+Don't be frightened by the hideous website, its actually a great database!
