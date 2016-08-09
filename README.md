@@ -75,7 +75,7 @@ Note that if you're not building for the x64 architecture you have to change it 
 
 If you are referencing Firebird.Embedded in another, non .xproj project and not the .xproj project then you want the following path instead:
 
-`..\\packages\\Firebird.Embedded.3.0.0.32485\\build\\x64\\ %compile:RuntimeOutputDir%\\`
+`robocopy /E ..\\packages\\Firebird.Embedded.3.0.0.32485\\build\\x64\\ %compile:RuntimeOutputDir%\\`
 
 ## More Information
 http://firebirdsql.org/en/net-examples-of-use/
