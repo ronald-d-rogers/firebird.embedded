@@ -18,35 +18,62 @@ var connectionString = new FbConnectionStringBuilder
 }.ToString();
 ```
 
-Creating the database:
+Create the database:
 
 ```c#
 new FbConnection.CreateDatabase(connectionString, false);
 ```
 
-Connecting to the database:
+Connect to the database:
+
 ```c#
 new FbConnection(connectionString);
 ```
 
-## ASP.Net Core
-ASP.Net core will not respect nuget's target file so you have to copy the files manually.
+You might want tables also, here's how to do it:
 
-In you `project.json` add the following:
+```c#
+using (var connection = new FbConnection(connectionString))
+using (var command = new FbCommand(
+    @"
+    EXECUTE BLOCK AS BEGIN
+
+    IF (NOT EXISTS(SELECT 1 FROM rdb$relations WHERE rdb$relation_name = 'EXAMPLE_TABLE')) THEN 
+        execute statement 'create table example_table (
+            id int not null primary key,
+            ...
+        );';
+
+    END",
+    connection))
+{
+
+    if (connection.State == ConnectionState.Closed)
+        connection.Open();
+
+    command.ExecuteNonQuery();
+}
+
+```
+
+## ASP.Net Core
+ASP.Net does not respect nuget package build targets so you have to copy the files manually.
+
+In your `project.json` add the following:
 
 ```json
 {
     "scripts": {
-        "postcompile": ["robocopy /E %USERPROFILE%\\.nuget\\packages\\Firebird.Embedded.3.0.0.32483\\build\\x64\\ %compile:RuntimeOutputDir%\\"]
+        "postcompile": ["robocopy /E %USERPROFILE%\\.nuget\\packages\\Firebird.Embedded.3.0.0.32485\\build\\x64\\ %compile:RuntimeOutputDir%\\"]
     }
 }
 ```
 
-Note that if you're not building for the x64 architecture you will have to change it to build to x86 manually.
-`%USERPROFILE%\\.nuget\\packages\\Firebird.Embedded.3.0.0.32483\\build\\x86\\ %compile:RuntimeOutputDir%\\`
+Note that if you're not building for the x64 architecture you have to change it to build for the x86 architecture manually:
+`robocopy /E %USERPROFILE%\\.nuget\\packages\\Firebird.Embedded.3.0.0.32485\\build\\x86\\ %compile:RuntimeOutputDir%\\`
 
-If you are referencing Firebird.Embedded in another, non .xproj project then you want the following path instead:
-`..\\packages\\Firebird.Embedded.3.0.0.32483\\build\\x64\\ %compile:RuntimeOutputDir%\\`
+If you are referencing Firebird.Embedded in another, non .xproj project and not the .xproj project then you want the following path instead:
+`..\\packages\\Firebird.Embedded.3.0.0.32485\\build\\x64\\ %compile:RuntimeOutputDir%\\`
 
 ## More Information
 http://firebirdsql.org/en/net-examples-of-use/
