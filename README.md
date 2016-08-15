@@ -11,7 +11,21 @@ To start an embedded instance create a connection string like so:
 ```c#
 var connectionString = new FbConnectionStringBuilder
 {
-    Database = ...,
+    Database = @"C:\Example\Path\To\File.fdb,
+    ServerType = FbServerType.Embedded,
+    UserID = ...,
+    Password = ...
+}.ToString();
+```
+
+Note that the value for the `Database` option can also be a relative path, but it is relative to the user directory of the user running the application, and not relative to the directory in which the executing process resides (as might be expected).
+
+```c#
+var currentDirectory = System.IO.Path.GetDirectoryName(Process.GetCurrentProcess().MainModule.FileName);
+
+var connectionString = new FbConnectionStringBuilder
+{
+    Database = Path.Combine(currentDirectory, "File.fdb"),
     ServerType = FbServerType.Embedded,
     UserID = ...,
     Password = ...
