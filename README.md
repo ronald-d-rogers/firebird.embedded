@@ -20,6 +20,8 @@ var connectionString = new FbConnectionStringBuilder
 
 Note that the value for the `Database` option can also be a relative path, but it is relative to the user directory of the user running the application, and not relative to the directory in which the executing process resides (as might be expected).
 
+To create the database relative to the directory of the executing process do the following:
+
 ```c#
 var currentDirectory = System.IO.Path.GetDirectoryName(Process.GetCurrentProcess().MainModule.FileName);
 
