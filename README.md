@@ -6,28 +6,14 @@ Ez-pz embedding of the fantastic [Firebird SQL RDBMS database](http://firebirdsq
 
 Simply reference Firebird.Embedded in nuget and you're good to go, the required Firebird libraries and files will automatically be copied to your output directory on build.
 
+##Getting Started
+
 To start an embedded instance create a connection string like so:
 
 ```c#
 var connectionString = new FbConnectionStringBuilder
 {
-    Database = @"C:\Example\Path\To\File.fdb,
-    ServerType = FbServerType.Embedded,
-    UserID = ...,
-    Password = ...
-}.ToString();
-```
-
-Note that the value for the `Database` option can also be a relative path, but it is relative to the user directory of the user running the application, and not relative to the directory in which the executing process resides (as might be expected).
-
-To create the database relative to the directory of the executing process do the following:
-
-```c#
-var currentDirectory = System.IO.Path.GetDirectoryName(Process.GetCurrentProcess().MainModule.FileName);
-
-var connectionString = new FbConnectionStringBuilder
-{
-    Database = Path.Combine(currentDirectory, "File.fdb"),
+    Database = @"C:\Example\Path\To\File.fdb",
     ServerType = FbServerType.Embedded,
     UserID = ...,
     Password = ...
@@ -70,6 +56,29 @@ using (var command = new FbCommand(
     command.ExecuteNonQuery();
 }
 
+```
+
+## Creating the Database
+
+The value for the `Database` option can also be a relative path, but it is relative to the user directory of the user running the application, and not relative to the directory in which the executing process resides (as might be expected), so if you run the application under the Local System account and supply a relative path, the database will get created in the `C:\Windows\System32\` directory -- probably not what we want!
+
+To create the database relative to the directory of the executing process do the following:
+
+```c#
+var currentDirectory = Path.GetDirectoryName(Process.GetCurrentProcess().MainModule.FileName);
+
+var connectionString = new FbConnectionStringBuilder
+{
+    Database = Path.Combine(currentDirectory, "File.fdb"),
+    ServerType = FbServerType.Embedded,
+    UserID = ...,
+    Password = ...
+}.ToString();
+```
+
+To create it relative to the project you will want to do this instead:
+```c#
+var currentDirectory = Directory.GetCurrentDirectory();
 ```
 
 ## ASP.Net Core
