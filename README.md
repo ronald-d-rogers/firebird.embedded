@@ -81,6 +81,20 @@ To create it relative to the project you will want to do this instead:
 var currentDirectory = Directory.GetCurrentDirectory();
 ```
 
+## DllNotFoundException
+
+Certain applications will not know to look for Firebird's DLLs in the output directory.
+
+To get around this, add an environment variable on application startup using the following code:
+
+```c#
+var assemblyPath = Path.GetDirectoryName(Uri.UnescapeDataString(new UriBuilder(Assembly.GetExecutingAssembly().CodeBase).Path));
+var path = Environment.GetEnvironmentVariable("Path");
+
+if(!string.IsNullOrEmpty(assemblyPath) && !string.IsNullOrEmpty(path) && !path.Contains(assemblyPath))
+    Environment.SetEnvironmentVariable("Path", assemblyPath + ";" + path);
+```
+
 ## ASP.Net Core
 ASP.Net does not respect nuget package build targets so you have to copy the files manually.
 
